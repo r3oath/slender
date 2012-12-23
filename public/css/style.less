@@ -1,0 +1,318 @@
+// Font sizes
+@fontBase:      62.5%;
+@fontSmaller:   1.0em;
+@fontSmall:     1.2em;
+@fontStandard:  1.4em;
+@fontMedium:    1.6em;
+@fontLarge:     1.8em;
+@fontBig:       3.5em;
+@fontIcons:     3.0em;
+
+// Font Families
+@fontFamily1:   'Domine', serif;
+@fontFamily2:   'Berkshire Swash', cursive;
+
+@import "theme.less";
+
+// Helper Mixins ------------------------------- //
+#helper {
+    .border-radius(@amount) {
+        -webkit-border-radius: @amount;
+        -moz-border-radius: @amount;
+        border-radius: @amount;
+    }
+
+    .box-shadow(@amount, @color){
+        -moz-box-shadow: 2px 2px @amount @color;
+        -webkit-box-shadow: 2px 2px @amount @color;
+        box-shadow: 2px 2px @amount @color;
+    }
+
+    .innder-shadow(@size, @color) {
+        -moz-box-shadow: inset 0 0 @size @color;
+        -webkit-box-shadow: inset 0 0 @size @color;
+        box-shadow: inset 0 0 @size @color;
+    }
+}
+// -------------------------------------------- //
+
+body {
+    background-color: @themeBackground;
+    color: @themeMain;
+    font-size: @fontBase;
+    font-family: @fontFamily1;
+}
+
+.footer-container {
+    position: fixed;
+    width: 100%;
+    bottom: 0;    
+
+    .footer {
+        font-size: @fontSmall;
+        color: @themeFeatureLight;    
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        background-color: @themeFeature;
+
+        a {
+            color: @themeFeatureLight;
+            text-decoration: none;
+
+            &:link, &:active, &:visited {
+                border-bottom: 1px solid @themeFeatureLight;
+            }
+
+            &:hover {
+                color: @themeMain;
+                border-bottom: 1px solid @themeMain;
+            }
+        }
+    }
+}
+
+.light-text {
+    font-size: @fontSmall;
+    color: @themeFeatureLight;
+    text-align: center;
+    padding: 20px;
+
+    a {
+        color: @themeFeatureLight;
+        text-decoration: none;
+
+        &:link, &:active, &:visited {
+            border-bottom: 1px solid @themeFeatureLight;
+        }
+
+        &:hover {
+            color: @themeMain;
+            border-bottom: 1px solid @themeMain;
+        }
+    }
+}
+
+.bottom-spacer {
+    padding-bottom: 50px;
+}
+
+.header {
+    font-size: @fontBig;
+    font-weight: bold;
+    color: @themeMain;
+}
+
+.sub-header {
+    font-size: @fontMedium;
+    color: @themeSub;
+}
+
+#search-bar {
+    width: 282px; // Fit the search bar into a grid_4
+    padding: 8px;
+    background-color: @themeFeature;
+    border: 1px solid @themeFeatureLight;
+    font-size: @fontStandard;
+    color: @themeMain;
+    outline: none;
+    #helper > .border-radius(3px);
+}
+
+.input-box {
+    width: 442px;
+    padding: 8px;
+    background-color: @themeFeature;
+    border: 1px solid @themeFeatureLight;
+    font-size: @fontStandard;
+    color: @themeMain;
+    outline: none;
+    margin-top: 10px;
+    #helper > .border-radius(3px);
+}
+
+.top-push {
+    padding-top: 15px;
+}
+
+.featured {
+    background-color: @themeFeature;
+    padding: 20px;
+}
+
+.spacer {
+    margin-bottom: 20px;
+}
+
+.top-spacer {
+    margin-bottom: 50px;
+}
+
+.bar-top {
+    border-top: 1px solid @themeFeatureLight;
+    border-bottom: 1px solid @themeFeatureDark;
+}
+
+.bar-bottom {
+    border-top: 1px solid @themeFeatureDark;
+    border-bottom: 1px solid @themeFeatureLight;
+}
+
+.tag-new-container {
+    background-color: @themeFeatureLight2;
+}
+
+.tag-container {
+    #helper > .border-radius(3px);
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+    &:hover {
+        background-color: @themeSub;
+        cursor: pointer;
+        #helper > .box-shadow(2px, darken(@themeFeature, 2%));
+    }
+
+    &:hover .tag-header {
+        color: @themeFeature;
+    }
+
+    &:hover .tag-desc {
+        color: @themeFeature;
+    }
+
+    &:hover .tag-type {
+        color: @themeFeature;
+    }
+
+    .tag-header {
+        font-size: @fontStandard;
+        margin-bottom: 1px;
+        padding-top: 4px;
+        padding-left: 5px;
+        padding-right: 0px;
+    }
+
+    .tag-desc {
+        font-size: @fontSmall;
+        color: @themeSub;
+        padding-left: 29px;
+        padding-bottom: 4px;
+    }
+
+    .tag-type {
+        font-size: @fontSmaller;
+        text-transform: uppercase;
+        color: @themeSub;
+        text-align: right;
+        padding-right: 5px;
+        padding-top: 7px;
+    }
+}
+
+.menu-items {
+    font-size: @fontIcons;
+    color: @themeSub;
+    text-align: right;
+
+    i {
+        &:hover {
+            color: @themeMain;
+            cursor: pointer;
+        }
+    }    
+}
+
+.tooltip {
+    // Used by jQuery.
+}
+
+#tooltip-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    padding: 5px;
+    color: @themeSub;
+    font-size: @fontSmall;
+    background-color: @themeFeature;
+    border: 1px dotted @themeFeatureDark;
+    #helper > .box-shadow(5px, @themeFeature);
+}
+
+.delete-tag {
+    background-color: @themeMain;
+    color: @themeFeature;
+    font-size: smaller;
+    display: none;
+    #helper > .border-radius(3px);
+}
+
+.markitup-editor {
+    width: 910px;
+    height: 300px;
+}
+
+.edit-tag-name {
+    font-size: @fontLarge;
+}
+
+.edit-tag-desc {
+    font-size: @fontSmall;
+    color: @themeSub;
+    padding-left: 10px;
+}
+
+.edit-tag-type {
+    font-size: @fontLarge;
+    color: @themeSub;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.edit-save-tag {
+    text-align: center;
+}
+
+.edit-image-tag {
+    padding: 20px;
+    text-align: center;
+}
+
+#save-tag {
+    font-size: @fontLarge;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: @themeFeatureLight2;
+    border: 1px solid @themeFeatureLight;
+    color: @themeMain;
+    #helper > .border-radius(3px);
+}
+
+textarea {
+    margin-top: 10px;
+    border: 5px solid @themeSub;
+    background-color: @themeFeatureDark;
+    padding: 10px;
+    color: @themeMain;
+    font-size: @fontStandard;
+    outline: none;
+}
+
+.error {
+    text-align: center;
+    font-size: @fontStandard;
+    color: @themeSub;
+}
+
+#updated-tag-notice {
+    text-align: center;
+    font-size: @fontMedium;
+    background-color: @themeSub;
+    padding: 10px;
+    color: @themeFeature;
+    margin-bottom: 10px;
+    display: none;
+    #helper > .border-radius(3px);
+}
