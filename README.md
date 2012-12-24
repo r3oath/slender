@@ -56,13 +56,13 @@ Finish by publishing Slenders assets.
     
     php artisan bundle:publish
 
-To login and manage Slender tags, you'll need some sort of existing user system. All thats required is that any user wanting to edit tags (aka an admin/moderator) will require the *slender_admin* colum in the user table to be equal to *1* (one). If you already have a users table setup, you can create a new migration to add this colum in
+To login and manage Slender tags, you'll need an existing user system. Any user wanting to edit tags will need the *slender_admin* column in the user table to be equal to *1* (true). If you already have a users table, you can create a new migration to add this column
 
     $table->boolean('slender_admin')->default(0);
 
 ### Using Slender
 
-Slender has various different Tag types for content. These include HTML, Text, JS (JavaScript/jQuery etc), CSS and Image. Using these Tags are simple within Blade.
+Slender has various different content tag types. These include HTML, Text, JS (JavaScript/jQuery etc), CSS and Image.
     
 #### HTML Tags
 
@@ -88,16 +88,20 @@ Note that *descriptions are optional*, so this will work too
 
     {{ Slender::html('Home: Main Content') }}
 
-Once you have placed tags on your page, simply load it in the browser to activate the tags (no content will be displayed, this is normal).
+##### Global Tags
 
-You can now visit the Slender Admin area by visiting
+If you'd like a tag to appear on any page and not just the page it was created on, simply add 'true' as the 3rd argument. This will ignore the page check and display the tag.
+
+    {{ Slender::html('Global: Footer', 'Some Description', true) }}
+
+Once tags have been placed on a page, load the page in the browser to initialize them (no content will be displayed, this is normal).
+
+Login to the Slender Admin area by adding /slender to the end of your domain
     
-    http://<your-website>.<tld>/slender
+    http://<your-website>/slender
 
-You'll be greeted with a login page. Simply login with the user that has Slender Admin priviledges (created during the installation process).
+Login with any user that has Slender Admin priviledges.
 
-On successful login, you'll be taken to the Slender Dashboard where all the available tags will be displayed. New tags will have a + symbol next to their name, while active tags will have the tag symbol.
+On the Slender Dashboard all the available tags will be displayed. Click on a tag to begin editing the associated content. To save simply click the save tag button at the bottom.
 
-Simply click on a tag to begin editing the associated content. To save simply click the save tag button at the bottom.
-
-Visit the page the tag lives on and you should now see the associated content displayed!
+Once edited and saved tags will immediately start displaying their associated content on the appropriate pages.
