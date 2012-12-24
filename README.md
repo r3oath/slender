@@ -8,6 +8,10 @@ For licensing, please see the included "LICENSE".
 
 ## Getting Started
 
+### Video Instructions
+
+Check out http://www.youtube.com/watch?v=GBuhPuX2w3o
+
 ### Installing Slender
 
 Start by cloning/downloading the Slender CMS repo into your Laravel *Bundles* folder.
