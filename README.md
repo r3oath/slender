@@ -40,6 +40,14 @@ Run the new migration using artisan
     
     php artisan migrate
 
+We need to let Laravel know about Slender, so let's add it into the *bundles.php* file
+
+    return array(
+        'docs' => array('handles' => 'docs'),
+        'slender' => array('handles' => 'slender'),
+    );
+    
+
 Finish by publishing Slenders assets.
     
     php artisan bundle:publish
