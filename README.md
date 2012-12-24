@@ -84,8 +84,8 @@ You can now visit the Slender Admin area by visiting
 
 You'll be greeted with a login page. Simply login with the user that has Slender Admin priviledges (created during the installation process).
 
-On successful login, you'll be taken to the Slender Dashboard where all the available tags will be displayed. New tags will have a + system next to their name, while active tags will have the tag symbol.
+On successful login, you'll be taken to the Slender Dashboard where all the available tags will be displayed. New tags will have a + symbol next to their name, while active tags will have the tag symbol.
 
-Simply click on a tag to begin editing its contents. Once edited simply click the save tag button at the bottom.
+Simply click on a tag to begin editing the associated content. To save simply click the save tag button at the bottom.
 
 Visit the page the tag lives on and you should now see the associated content displayed!
