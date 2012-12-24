@@ -5,3 +5,5 @@ $ ->
     $('#menu-reset-filters').live 'click', ->
         $('#search-bar').val('')
         window.vent.trigger 'gotoShowTags'
+
+    

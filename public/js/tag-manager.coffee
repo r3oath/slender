@@ -43,7 +43,7 @@ class App.Views.Tag extends Backbone.View
         window.vent.trigger 'gotoEditTag', @model.get 'id'
     deleteMe: (e) ->
         e.stopImmediatePropagation()
-        if confirm('This will delete the tag and/or reset its contents.') is true
+        if confirm('This will delete the tag and/or reset the associated content.') is true
             @$el.fadeOut()
             @model.destroy()
     template: template 'tagTemplate'

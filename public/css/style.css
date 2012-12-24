@@ -163,6 +163,10 @@ body {
   color: white;
   cursor: pointer;
 }
+.menu-items a {
+  color: #67869a;
+  text-decoration: none;
+}
 #tooltip-box {
   position: absolute;
   top: 0;
@@ -248,4 +252,49 @@ textarea {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+.home-logo {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 7.5em;
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+}
+.home-slogan {
+  font-size: 1.4em;
+  color: #67869a;
+  text-align: center;
+}
+.home-login {
+  text-align: center;
+  margin-top: 20px;
+}
+.home-login input[type=text],
+.home-login input[type=password] {
+  padding: 8px;
+  background-color: #1d1d1d;
+  border: 1px solid #313131;
+  font-size: 1.8em;
+  color: white;
+  outline: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.home-login input[type=submit] {
+  padding: 8px;
+  background-color: #1d1d1d;
+  border: 1px solid #313131;
+  font-size: 1.8em;
+  color: white;
+  outline: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.home-error {
+  font-size: 1.4em;
+  text-align: center;
+  color: #67869a;
+  margin-top: 20px;
 }

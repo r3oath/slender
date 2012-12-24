@@ -21,10 +21,10 @@
         <div class="grid_4 top-push">
             <!-- <input type="text" id="search-bar" placeholder="Search Tags..."> -->
             <div class="menu-items">
-                <i class="icon-tag tooltip" data-tooltip="Filter Tags"></i>
+                <i class="icon-tag tooltip" data-tooltip="Filters Not Enabled"></i>
                 <i class="icon-arrows-cw tooltip" id="menu-reset-filters" data-tooltip="Reset Filters/Searches"></i>
                 <i class="icon-pencil tooltip" id="menu-delete-tags" data-tooltip="Toggle Delete Tags"></i>
-                <i class="icon-cog tooltip" data-tooltip="No Options Available"></i>
+                <a href="logout"><i class="icon-logout tooltip" data-tooltip="Logout"></i></a>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="container_12">
             <div class="grid_12">
                 <div id="updated-tag-notice">
-                    The tag was updated and its contents now live!
+                    <i class="icon-upload-cloud"></i> Tag Updated! The associated content is now live.
                 </div>
             </div>
         </div>

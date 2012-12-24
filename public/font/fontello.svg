@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20100429 at Sun Dec 23 09:31:55 2012
+Created by FontForge 20100429 at Sun Dec 23 10:35:43 2012
  By root
 Copyright (C) 2012 by original authors @ fontello.com
 </metadata>
@@ -19,7 +19,7 @@ Copyright (C) 2012 by original authors @ fontello.com
     bbox="15 -125 1015 850"
     underline-thickness="50"
     underline-position="-100"
-    unicode-range="U+002B-E760"
+    unicode-range="U+002B-1F465"
   />
 <missing-glyph horiz-adv-x="364" 
 d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
@@ -46,7 +46,15 @@ d="M775 494q99 0 170 -68q70 -67 70 -166t-70 -166q-71 -68 -170 -68h-190v190h106l-
     <glyph glyph-name="uniE724" unicode="&#xe724;" horiz-adv-x="836" 
 d="M138 735q115 115 279.5 115t279.5 -115q121 -115 121 -281q0 -133 -100 -259q-52 -67 -90 -99q-26 -30 -110 -106l-50 -44l-36 -32q-11 -10 -14 -14q-56 55 -100 90q-40 35 -110 106q-44 38 -90 99q-100 117 -100 259q0 165 120 281zM242 450q0 -75 50.5 -124.5
 t125 -49.5t125 49.5t50.5 124t-50.5 125t-125 50.5t-125 -50.5t-50.5 -124.5z" />
+    <glyph glyph-name="uniE740" unicode="&#xe740;" horiz-adv-x="930" 
+d="M815 800q42 0 71 -29t29 -71v-700q0 -41 -29.5 -70.5t-70.5 -29.5h-450q-40 0 -69 30t-29 70v100h98v-100h450v700h-450v-150h-98v150q0 41 29 70.5t69 29.5h450zM465 130v120h-450v150h450v120l200 -194z" />
+    <glyph glyph-name="uniE741" unicode="&#xe741;" horiz-adv-x="930" 
+d="M515 800q42 0 71 -29t29 -71v-150h-98v150h-402v-700h402v100h98v-100q0 -41 -29.5 -70.5t-70.5 -29.5h-400q-40 0 -70 30t-30 70v700q0 41 29.5 70.5t70.5 29.5h400zM915 326l-198 -196v120h-450v150h450v120z" />
     <glyph glyph-name="uniE760" unicode="&#xe760;" horiz-adv-x="715" 
 d="M358 560q-90 0 -150 -60t-60 -150q0 -72 55 -130l-90 -90q-95 95 -95 220q0 140 99.5 240t240.5 100v135l200 -200l-200 -201v136zM158 75l200 201v-136q90 0 150 60t60 150q0 74 -54 130l88 90q95 -95 95 -220q0 -140 -99.5 -240t-239.5 -100v-135z" />
+    <glyph glyph-name="u1F465" unicode="&#x1f465;" horiz-adv-x="1030" 
+d="M791 -90v150q0 54 -30 81q-32 29 -154 89q40 30 40 84q0 17 -13 33t-19 51q-2 8 -14 16q-13 8 -14 42q0 24 12 30q-10 40 -8 73.5t23 64.5q27 40 95 40t96 -40q29 -40 24 -78l-8 -60q12 -6 12 -30q-1 -34 -14 -42q-12 -8 -14 -16q-6 -35 -19 -51t-13 -33q0 -42 21 -66
+t77 -48q113 -47 130 -80q6 -7 9 -61q4 -71 5 -101v-48h-224zM527 172q182 -78 182 -124v-138h-694v184q0 44 84 78q73 30 104 64q28 31 28 88q0 21 -19 44t-25 68q-1 10 -18 22q-15 11 -20 56q0 26 10 36l4 2l-5 46l-5 36q-5 50 33 103t127 53t127 -53t33 -103l-10 -82
+q14 -8 14 -38q-5 -45 -20 -56q-17 -12 -18 -22q-6 -45 -25 -68t-19 -44q0 -57 28 -88q31 -34 104 -64z" />
   </font>
 </defs></svg>

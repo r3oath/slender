@@ -66,7 +66,7 @@
 
     Tag.prototype.deleteMe = function(e) {
       e.stopImmediatePropagation();
-      if (confirm('This will delete the tag and/or reset its contents.') === true) {
+      if (confirm('This will delete the tag and/or reset the associated content.') === true) {
         this.$el.fadeOut();
         return this.model.destroy();
       }

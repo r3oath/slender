@@ -6,6 +6,7 @@
 @fontMedium:    1.6em;
 @fontLarge:     1.8em;
 @fontBig:       3.5em;
+@fontHuge:      7.5em;
 @fontIcons:     3.0em;
 
 // Font Families
@@ -220,6 +221,11 @@ body {
             color: @themeMain;
             cursor: pointer;
         }
+    }
+
+    a {
+        color: @themeSub;
+        text-decoration: none;
     }    
 }
 
@@ -315,4 +321,50 @@ textarea {
     margin-bottom: 10px;
     display: none;
     #helper > .border-radius(3px);
+}
+
+.home-logo {
+    font-family: @fontFamily2;
+    font-size: @fontHuge;
+    color: @themeMain;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.home-slogan {
+    font-size: @fontStandard;
+    color: @themeSub;
+    text-align: center;
+}
+
+.home-login {
+    text-align: center;
+    margin-top: 20px;
+
+    input[type=text], input[type=password] {
+        padding: 8px;
+        background-color: @themeFeature;
+        border: 1px solid @themeFeatureLight;
+        font-size: @fontLarge;
+        color: @themeMain;
+        outline: none;
+        #helper > .border-radius(3px);
+    }
+
+    input[type=submit] {
+        padding: 8px;
+        background-color: @themeFeature;
+        border: 1px solid @themeFeatureLight;
+        font-size: @fontLarge;
+        color: @themeMain;
+        outline: none;
+        #helper > .border-radius(3px);
+    }
+}
+
+.home-error {
+    font-size: @fontStandard;
+    text-align: center;
+    color: @themeSub;
+    margin-top: 20px;
 }
