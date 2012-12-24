@@ -44,7 +44,7 @@ We need to let Laravel know about Slender, so let's add it into the *bundles.php
 
     return array(
         'docs' => array('handles' => 'docs'),
-        'slender' => array('handles' => 'slender'),
+        'slender' => array('handles' => 'slender', 'auto' => true),
     );
     
 
