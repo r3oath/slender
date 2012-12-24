@@ -2,7 +2,7 @@
 
 class Slender {
 
-    public static $VERSION  = '1.0.1';
+    public static $VERSION  = '1.0.2';
     public static $REPO     = 'https://github.com/r3oath/slender';
 
     // --------------------------------------------------------------------------
@@ -13,24 +13,24 @@ class Slender {
         HTML Tag: Used for raw html code:
             <b>Welcome to my website!</b>
     */
-    public static function html($tag, $desc = ''){
-        static::handlr('html', $tag, $desc);
+    public static function html($tag, $desc = '', $global = false){
+        static::handlr('html', $tag, $desc, $global);
     }
 
     /*
         TEXT Tag: Used for plain text with no formatting:
             Welcome to my website!
     */
-    public static function text($tag, $desc = ''){
-        static::handlr('text', $tag, $desc);
+    public static function text($tag, $desc = '', $global = false){
+        static::handlr('text', $tag, $desc, $global);
     }
 
     /*
         IMAGE Tag: Used for image URLs, the handlr adds the neccessary <img> html tag:
         The actual content formating is handled by the slender dashboard.
     */
-    public static function image($tag, $desc = ''){
-        static::handlr('image', $tag, $desc);
+    public static function image($tag, $desc = '', $global = false){
+        static::handlr('image', $tag, $desc, $global);
     }
 
     /*
@@ -40,8 +40,8 @@ class Slender {
 
         The actual content formating is handled by the slender dashboard.
     */
-    public static function css($tag, $desc = ''){
-        static::handlr('css', $tag, $desc);
+    public static function css($tag, $desc = '', $global = false){
+        static::handlr('css', $tag, $desc, $global);
     }
 
     /*
@@ -51,8 +51,8 @@ class Slender {
 
         The actual content formating is handled by the slender dashboard.
     */
-    public static function js($tag, $desc = ''){
-        static::handlr('js', $tag, $desc);
+    public static function js($tag, $desc = '', $global = false){
+        static::handlr('js', $tag, $desc, $global);
     }
 
     /*
@@ -82,12 +82,15 @@ class Slender {
     // Everything else below is used internally. 
     // --------------------------------------------------------------------------
 
-    private static function handlr($type, $tagName, $desc){
+    private static function handlr($type, $tagName, $desc, $global){
         // Get the current page.
         $page = URL::current();
 
         // Attempt to grab the tag if it exists.
-        $tag = Slendertag::where_name($tagName)->where_page($page)->first();
+        if($global === false)
+            $tag = Slendertag::where_name($tagName)->where_page($page)->first();
+        else
+            $tag = Slendertag::where_name($tagName)->first();
 
         // If this tag does not exist, create a new one.
         if($tag === null){
