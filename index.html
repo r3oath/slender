@@ -1,99 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <title>Slender by r3oath</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/r3oath/slender">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/r3oath/slender/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/r3oath/slender/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-        <header>
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
           <h1>Slender</h1>
-          <h2>A lightweight, flexible and utterly simple CMS plugin for Laravel.</h2>
-        </header>
+          <p>A lightweight, flexible and utterly simple CMS plugin for Laravel.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/r3oath">r3oath</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/r3oath/slender/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/r3oath/slender/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/r3oath/slender" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>Slender CMS</h1>
+        <h1>Slender CMS</h1>
 
 <p>A lightweight, flexible and utterly simple content management system plugin for Laravel.</p>
 
-<h3>Using Slender</h3>
+<h2>Why use Slender?</h2>
 
-<center><iframe width="560" height="315" src="http://www.youtube.com/embed/GBuhPuX2w3o?list=UUDNj1yVZjdt60mCR2bLKWDw" frameborder="0" allowfullscreen></iframe></center><br>
+<p>Slender can turn a static website into a rich and dynamic one. Simply tagging where you want content to be shown, you'll be able to change what is displayed there at any time.</p>
 
-<p>Slender has various different Tag types for content. These include HTML, Text, JS (JavaScript/jQuery etc), CSS and Image. Using these Tags are simple within Blade.</p>
+<p><img src="http://www.r3oath.com/slender1.jpg" alt="Slender"></p>
 
-<h4>HTML Tags</h4>
+<p><strong>Tagging is as simple as</strong>
+    {{ Slender::html('Home: Main Content', 'Some Description') }}</p>
 
-<pre><code>{{ Slender::html('Home: Main Content', 'Some Description') }}
-</code></pre>
+<p><img src="http://www.r3oath.com/slender2.jpg" alt="Slender"></p>
 
-<h4>TEXT Tags</h4>
+<h2>What does Slender currently support?</h2>
 
-<pre><code>{{ Slender::text('Home: Sidebar Content', 'Some Description') }}
-</code></pre>
+<p>HTML, Text, CSS, JS (JavaScript, jQuery etc) and Images. All of which are managed from the dashboard.</p>
 
-<h4>JS Tags</h4>
+<p><img src="http://www.r3oath.com/slender3.jpg" alt="Slender"></p>
 
-<pre><code>{{ Slender::js('Home: Menu Actions', 'Some Description') }}
-</code></pre>
+<h2>How do I get started using it?</h2>
 
-<h4>CSS Tags</h4>
+<p>Watch the video above or view the <a href="https://github.com/r3oath/slender/blob/master/README.md">README</a>.</p>
+      </section>
 
-<pre><code>{{ Slender::css('Home: Menu Styling', 'Some Description') }}
-</code></pre>
-
-<h4>IMAGE Tags</h4>
-
-<pre><code>{{ Slender::image('Home: Product Image', 'Some Description') }}
-</code></pre>
-
-<p>Note that <em>descriptions are optional</em>, so this will work too</p>
-
-<pre><code>{{ Slender::html('Home: Main Content') }}
-</code></pre>
-
-<p>Once you have placed tags on your page, simply load it in the browser to activate the tags (no content will be displayed, this is normal).</p>
-
-<p>You can now visit the Slender Admin area by visiting</p>
-
-<pre><code>http://&lt;your-website&gt;.&lt;tld&gt;/slender
-</code></pre>
-
-<p>You'll be greeted with a login page. Simply login with the user that has Slender Admin priviledges (created during the installation process).</p>
-
-<p>On successful login, you'll be taken to the Slender Dashboard where all the available tags will be displayed. New tags will have a + symbol next to their name, while active tags will have the tag symbol.</p>
-
-<p>Simply click on a tag to begin editing the associated content. To save simply click the save tag button at the bottom.</p>
-
-<p>Visit the page the tag lives on and you should now see the associated content displayed!</p>
-        </section>
-
-        <footer>
-          Slender is maintained by <a href="https://github.com/r3oath">r3oath</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
     </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
