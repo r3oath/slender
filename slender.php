@@ -2,7 +2,7 @@
 
 class Slender {
 
-    public static $VERSION  = '1.0.2';
+    public static $VERSION  = '1.0.3';
     public static $REPO     = 'https://github.com/r3oath/slender';
 
     // --------------------------------------------------------------------------
