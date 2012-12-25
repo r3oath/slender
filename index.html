@@ -4,70 +4,131 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Slender by r3oath</title>
+
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
+    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/r3oath/slender">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/r3oath/slender/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/r3oath/slender/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
-
     <div class="wrapper">
+      <header>
+        <h1 class="header">Slender</h1>
+        <p class="header">A lightweight, flexible and utterly simple CMS plugin for Laravel.</p>
 
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/r3oath/slender/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/r3oath/slender/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/r3oath/slender">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/r3oath">r3oath</a></p>
+
+
+      </header>
       <section>
-        <div id="title">
-          <h1>Slender</h1>
-          <p>A lightweight, flexible and utterly simple CMS plugin for Laravel.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/r3oath">r3oath</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
+        <p><img src="http://r3oath.com/slender2.jpg" alt="Slender"></p>
 
-        <h1>Slender CMS</h1>
+<h2>Getting Started</h2>
 
-<p>A lightweight, flexible and utterly simple content management system plugin for Laravel.</p>
+<h3>Installing Slender</h3>
 
-<center><iframe width="560" height="315" src="http://www.youtube.com/embed/GBuhPuX2w3o?rel=0" frameborder="0" allowfullscreen></iframe></center><br>
+<p>Installation is dead simple... it's 3 steps!</p>
 
-<h2>Why use Slender?</h2>
+<p>Clone the Slender Repo into your Laravel Bundles folder</p>
 
-<p>Slender can turn a static website into a rich and dynamic one. Simply tagging where you want content to be shown, you'll be able to change what is displayed there at any time.</p>
+<pre><code>git clone https://github.com/r3oath/slender.git slender
+</code></pre>
 
-<p><img src="http://www.r3oath.com/slender1.jpg" alt="Slender"></p>
+<p>Let Laravel know about Slender by adding one line in the <em>bundles.php</em> file in the <em>application/</em> directory.</p>
 
-<p><strong>Tagging is as simple as</strong>
-    {{ Slender::html('Home: Main Content', 'Some Description') }}</p>
+<pre><code>return array(
+    'docs' =&gt; array('handles' =&gt; 'docs'),
+    // Add this line below.
+    'slender' =&gt; array('handles' =&gt; 'slender', 'auto' =&gt; true),
+);
+</code></pre>
 
-<p><img src="http://www.r3oath.com/slender2.jpg" alt="Slender"></p>
+<p>Open up a console window and run</p>
 
-<h2>What does Slender currently support?</h2>
+<pre><code>php artisan slender::setup:install
+</code></pre>
 
-<p>HTML, Text, CSS, JS (JavaScript, jQuery etc) and Images. All of which are managed from the dashboard.</p>
+<p>You're now ready to start using Slender!</p>
 
-<p><img src="http://www.r3oath.com/slender3.jpg" alt="Slender"></p>
+<h3>Managing Slender Users</h3>
 
-<h2>How do I get started using it?</h2>
+<p>To login and manage Slender tags, you'll need an existing user system. Your users table will require one additional field, this being</p>
 
-<p>Watch the video above or view the <a href="https://github.com/r3oath/slender/blob/master/README.md">README</a>.</p>
+<pre><code>$table-&gt;boolean('slender_admin')-&gt;default(0);
+</code></pre>
+
+<p>Any user who has <em>slender_admin</em> equal to 1 (true) will be able to access the Slender dashboard.</p>
+
+<hr><h3>Placing Slender Tags</h3>
+
+<p>Slender has various different content tag types. These include HTML, Text, JS (JavaScript/jQuery etc), CSS and Image. Place these tags in any spot you wish to pull in dynamic content.</p>
+
+<h4>HTML Tags</h4>
+
+<pre><code>{{ Slender::html('Home: Main Content', 'Some Description') }}
+</code></pre>
+
+<h4>TEXT Tags</h4>
+
+<pre><code>{{ Slender::text('Home: Sidebar Content', 'Some Description') }}
+</code></pre>
+
+<h4>JS Tags</h4>
+
+<pre><code>{{ Slender::js('Home: Menu Actions', 'Some Description') }}
+</code></pre>
+
+<h4>CSS Tags</h4>
+
+<pre><code>{{ Slender::css('Home: Menu Styling', 'Some Description') }}
+</code></pre>
+
+<h4>IMAGE Tags</h4>
+
+<pre><code>{{ Slender::image('Home: Product Image', 'Some Description') }}
+</code></pre>
+
+<p>Note that <em>descriptions are optional</em>, this is acceptable</p>
+
+<pre><code>{{ Slender::html('Home: Main Content') }}
+</code></pre>
+
+<h5>Global Tags</h5>
+
+<p>If you'd like a tag to appear on multiple pages and not just the page it was created on, simply set the 3rd tag argument as 'true'. This sets the tag as global.</p>
+
+<pre><code>{{ Slender::html('Global: Footer', 'Some Description', true) }}
+</code></pre>
+
+<p>Once tags have been placed on a page, load the page in the browser to initialize them, no content will be displayed, this is normal.</p>
+
+<hr><h3>Managing Tags</h3>
+
+<p><img src="http://r3oath.com/slender1.jpg" alt="Slender"></p>
+
+<p>Login to the Slender Admin area by adding /slender to the end of your domain.</p>
+
+<pre><code>http://&lt;your-website&gt;/slender
+</code></pre>
+
+<p><img src="http://r3oath.com/slender3.jpg" alt="Slender"></p>
+
+<p>All initialized tags will be displayed on the dashboard. Click on a tag to begin editing the associated content. Click save to activate the tag. Saved tags will immediately start displaying their associated content.</p>
       </section>
-
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+		
   </body>
 </html>
