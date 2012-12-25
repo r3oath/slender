@@ -6,7 +6,7 @@ $ ->
 
     tooltipItems.live 'mouseover', ->
         tooltipBox.html $(@).data 'tooltip'
-        tooltipBox.stop(true, true).show()
+        tooltipBox.show()
 
     tooltipItems.live 'mouseout', ->
         tooltipBox.hide()

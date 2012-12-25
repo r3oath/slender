@@ -114,9 +114,11 @@ class App.Router extends Backbone.Router
         window.vent.on 'gotoEditTag', @gotoEditTag, @
         window.vent.on 'gotoUpdatedTags', @gotoUpdatedTags, @
         window.vent.on 'gotoShowTags', @gotoShowTags, @
+        window.vent.on 'gotoFilterTags', @gotoFilterTags, @
     routes:
         '': 'showTags'
         'edit/:id': 'editTag'
+        'filter/:id': 'filterTags'
     gotoUpdatedTags: ->
         @navigate ''
         @updatedTags()
@@ -133,6 +135,11 @@ class App.Router extends Backbone.Router
     editTag: (id) ->
         SetStatusBar('Editing Tag ID: ' + id)
         ToggleTagArea EditTagCallback id
+    gotoFilterTags: (tagType) ->
+        @navigate 'filter/' + tagType, trigger: true
+    filterTags: (id) ->
+        SetStatusBar('Displaying all ' + id + ' Tags')
+        ToggleTagArea FilterByType id
 
 # --------------------------------------------------------------------------
 # Various Actions
@@ -175,6 +182,22 @@ EditTagCallback = (id) ->
                 else
                     TagView = new App.Views.EditImageTag model: Tag
                     tagArea.html TagView.render().el
+                ToggleTagArea()
+
+FilterByType = (tagType) ->
+    Tags = new App.Collections.Tags;
+    Tags.fetch
+        success: ->
+            if Tags.length is 0
+                tagArea.html '<div class="error">There are currently no tags available. Start tagging!<div>'
+                ToggleTagArea()
+            else
+                Tags.reset Tags.where type: tagType
+                if Tags.length isnt 0
+                    TagsView = new App.Views.Tags collection: Tags
+                    tagArea.html TagsView.render().el
+                else
+                    tagArea.html '<div class="error">There are currently no ' + tagType + ' tags.<div>'
                 ToggleTagArea()
 
 # --------------------------------------------------------------------------

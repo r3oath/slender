@@ -8,7 +8,7 @@
     OFFSET = 12;
     tooltipItems.live('mouseover', function() {
       tooltipBox.html($(this).data('tooltip'));
-      return tooltipBox.stop(true, true).show();
+      return tooltipBox.show();
     });
     tooltipItems.live('mouseout', function() {
       return tooltipBox.hide();

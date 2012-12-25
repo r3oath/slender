@@ -21,11 +21,18 @@
         <div class="grid_4 top-push">
             <!-- <input type="text" id="search-bar" placeholder="Search Tags..."> -->
             <div class="menu-items">
-                <i class="icon-tag tooltip" data-tooltip="Filters Not Enabled"></i>
+                <i class="icon-tag tooltip" id="menu-filter-tags" data-tooltip="Filter By Type"></i>                    
                 <i class="icon-arrows-cw tooltip" id="menu-reset-filters" data-tooltip="Reset Filters/Searches"></i>
                 <i class="icon-pencil tooltip" id="menu-delete-tags" data-tooltip="Toggle Delete Tags"></i>
                 <a href="logout"><i class="icon-logout tooltip" data-tooltip="Logout"></i></a>
             </div>
+            <div id="filter-tags-list">
+                <span id="filter-type-html" data-type="html"><i class="icon-tag"></i> HTML</span>
+                <span id="filter-type-text" data-type="text"><i class="icon-tag"></i> TEXT</span>
+                <span id="filter-type-css" data-type="css"><i class="icon-tag"></i> CSS</span>
+                <span id="filter-type-js" data-type="js"><i class="icon-tag"></i> JS</span>
+                <span id="filter-type-image" data-type="image"><i class="icon-tag"></i> IMAGE</span>
+            </div>            
         </div>
     </div>
 

@@ -2,13 +2,31 @@
 (function() {
 
   $(function() {
-    $('#menu-delete-tags').live('click', function() {
+    var filterTypeBox, resetAllFilters, tooltipBox;
+    tooltipBox = $('#tooltip-box');
+    filterTypeBox = $('#filter-tags-list');
+    $('#menu-delete-tags').on('click', function() {
       return $('.delete-tag').fadeToggle();
     });
-    return $('#menu-reset-filters').live('click', function() {
+    $('#menu-reset-filters').on('click', function() {
+      resetAllFilters();
       $('#search-bar').val('');
       return window.vent.trigger('gotoShowTags');
     });
+    $('#menu-filter-tags').on('click', function() {
+      tooltipBox.hide();
+      return filterTypeBox.toggle();
+    });
+    filterTypeBox.children('span').on('click', function() {
+      if ($(this).hasClass('active') !== true) {
+        resetAllFilters();
+        $(this).addClass('active');
+        return window.vent.trigger('gotoFilterTags', $(this).data('type'));
+      }
+    });
+    return resetAllFilters = function() {
+      return filterTypeBox.children('span').removeClass('active');
+    };
   });
 
 }).call(this);
