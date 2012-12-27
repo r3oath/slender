@@ -1,102 +1,183 @@
 <?php
 
+/**
+* Slender CMS Tag Manager
+*
+* @uses     
+*
+* @category Manager
+* @package  Slender
+* @author   Tristan Strathearn <r3oath@gmail.com>
+* @license  MIT
+*/
 class Slender {
+    /**
+     * Current version number.
+     *
+     * @var string
+     *
+     * @access public
+     * @static
+     */
+    public static $VERSION = '1.2.1';
 
-    public static $VERSION  = '1.2.0';
-    public static $REPO     = 'https://github.com/r3oath/slender';
+    /**
+     * Github repository URL.
+     *
+     * @var string
+     *
+     * @access public
+     * @static
+     */
+    public static $REPO = 'https://github.com/r3oath/slender';
 
-    // --------------------------------------------------------------------------
-    // Public Slender CMS interface methods.
-    // --------------------------------------------------------------------------
-
-    /*
-        HTML Tag: Used for raw html code:
-            <b>Welcome to my website!</b>
-    */
-    public static function html($tag, $desc = '', $global = false){
-        static::handlr('html', $tag, $desc, $global);
+    /**
+     * Create or return a html tag.
+     * 
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+    public static function html($name, $desc = '', $global = false){
+        static::handlr('html', $name, $desc, $global);
     }
 
-    /*
-        TEXT Tag: Used for plain text with no formatting:
-            Welcome to my website!
-    */
-    public static function text($tag, $desc = '', $global = false){
-        static::handlr('text', $tag, $desc, $global);
+    /**
+     * Create or return a text tag.
+     * 
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+    public static function text($name, $desc = '', $global = false){
+        static::handlr('text', $name, $desc, $global);
     }
 
-    /*
-        IMAGE Tag: Used for image URLs, the handlr adds the neccessary <img> html tag:
-        The actual content formating is handled by the slender dashboard.
-    */
-    public static function image($tag, $desc = '', $global = false){
-        static::handlr('image', $tag, $desc, $global);
+    /**
+     * Create or return an image tag.
+     * 
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+    public static function image($name, $desc = '', $global = false){
+        static::handlr('image', $name, $desc, $global);
     }
 
-    /*
-        CSS Tag: Used for raw css code:
-            Turns: body { background-color: red; }
-            Into: <style>body { background-color: red; }</style>
-
-        The actual content formating is handled by the slender dashboard.
-    */
-    public static function css($tag, $desc = '', $global = false){
-        static::handlr('css', $tag, $desc, $global);
+    /**
+     * Create or return a css tag.
+     * 
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+    public static function css($name, $desc = '', $global = false){
+        static::handlr('css', $name, $desc, $global);
     }
 
-    /*
-        JS Tag: Used for raw JavaScript/jQuery/Backbone etc code:
-            Turns: $('#welcome').html('Welcome to my website!');
-            Into: <script type="text/javascript">$('#welcome').html('Welcome to my website!');</script>
-
-        The actual content formating is handled by the slender dashboard.
-    */
-    public static function js($tag, $desc = '', $global = false){
-        static::handlr('js', $tag, $desc, $global);
+    /**
+     * Create or return a js tag.
+     * 
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+    public static function js($name, $desc = '', $global = false){
+        static::handlr('js', $name, $desc, $global);
     }
 
-    /*
-        If you enjoy using Slender and would like to add a "Content powered by Slender <version>"
-        notice on your website, just call this! A small way of saying thanks.
-    */
+    /**
+     * Return a thanks/powered-by note with optional version number.
+     * 
+     * @param mixed $showVersion Description.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
     public static function thanks($showVersion = true){
         echo 'Content powered by <a href="' . static::repo() . '" class="thanks-slender">Slender ';
         echo ($showVersion === true) ? static::version() . '</a>' : '</a>';
     }
 
-    /*
-        Get the installed version info.
-    */
+    /**
+     * Get the current version number.
+     * 
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
     public static function version(){
         return static::$VERSION;
     }
 
-    /*
-        Get this Slender Git Repo.
-    */
+    /**
+     * Get the Github Repository URL.
+     * 
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
     public static function repo(){
         return static::$REPO;
     }
 
-    // --------------------------------------------------------------------------
-    // Everything else below is used internally. 
-    // --------------------------------------------------------------------------
-
-    private static function handlr($type, $tagName, $desc, $global){
+    /**
+     * Handle various tag types.
+     * 
+     * @param mixed  $type   The type.
+     * @param mixed  $name   The name.
+     * @param string $desc   The description.
+     * @param mixed  $global Show this tag regardless of what page it was created on.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function handlr($type, $name, $desc, $global){
         // Get the current page.
         $page = URL::current();
 
         // Attempt to grab the tag if it exists.
         if($global === false)
-            $tag = Slendertag::where_name($tagName)->where_page($page)->first();
+            $tag = Slendertag::where_name($name)->where_page($page)->first();
         else
-            $tag = Slendertag::where_name($tagName)->first();
+            $tag = Slendertag::where_name($name)->first();
 
-        // If this tag does not exist, create a new one.
+        // If tag does not exist, create a new one.
         if($tag === null){
             $tag = new Slendertag;
             $tag->type = $type;
-            $tag->name = $tagName;
+            $tag->name = $name;
             $tag->page = $page;
             $tag->description = ($desc === '') ? 'No Description.' : $desc;
             $tag->save();
@@ -108,33 +189,87 @@ class Slender {
             $tag->save();
         }
 
-        // Display the tag contents if it is enabled.
+        // Display the associated content if the tag is enabled.
         if($tag->enabled === 1)
             call_user_func('static::' . $tag->type . '_handlr', $tag->contents, $tag->alt);
     }
 
-    private static function html_handlr($content, $alt){
+    /**
+     * Handle html tags.
+     * 
+     * @param mixed $content    The content.
+     * @param mixed $altContent The alternative content.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function html_handlr($content, $altContent){
         echo $content;
     }
 
-    private static function text_handlr($content, $alt){
+    /**
+     * Handle text tags.
+     * 
+     * @param mixed $content    The content.
+     * @param mixed $altContent The alternative content.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function text_handlr($content, $altContent){
         echo htmlentities($content);
     }
 
-    private static function image_handlr($content, $alt){
-        echo '<img src="' . $content . '" alt="' . $alt . '">';
+    /**
+     * Handle image tags.
+     * 
+     * @param mixed $content    The content.
+     * @param mixed $altContent The alternative content.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function image_handlr($content, $altContent){
+        echo '<img src="' . $content . '" alt="' . $altContent . '">';
     }
 
-    private static function css_handlr($content, $alt){
+    /**
+     * Handle css tags.
+     * 
+     * @param mixed $content    The content.
+     * @param mixed $altContent The alternative content.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function css_handlr($content, $altContent){
         echo '<style>';
         echo $content;
         echo '</style>';
     }
 
-    private static function js_handlr($content, $alt){
+    /**
+     * Handle js tags.
+     * 
+     * @param mixed $content    The content.
+     * @param mixed $altContent The alternative content.
+     *
+     * @access private
+     * @static
+     *
+     * @return mixed Value.
+     */
+    private static function js_handlr($content, $altContent){
         echo '<script type="text/javascript">';
         echo $content;
         echo '</script>';
     }
-
 }

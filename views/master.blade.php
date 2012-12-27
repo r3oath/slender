@@ -35,9 +35,9 @@
     {{ HTML::script('bundles/slender/markitup/jquery.markitup.js') }}
     {{ HTML::script('bundles/slender/markitup/sets/default/set.js') }}
     <!-- Slender -->
-    {{ HTML::script('bundles/slender/js/tag-manager.js') }}
-    {{ HTML::script('bundles/slender/js/tooltips.js') }}
-    {{ HTML::script('bundles/slender/js/menu-items.js') }}
+    {{ HTML::script('bundles/slender/js/tag-manager.min.js') }}
+    {{ HTML::script('bundles/slender/js/tooltips.min.js') }}
+    {{ HTML::script('bundles/slender/js/menu-items.min.js') }}
 
     @yield('scripts')
 

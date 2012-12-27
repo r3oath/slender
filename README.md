@@ -28,6 +28,20 @@ Open up a console window and run
 
     php artisan slender::setup:install
 
+The console should output something similar too...
+
+    [*] Beginning Installation...
+    [-] Creating the DB migration.
+
+        Migrated: application/2012_12_27_124224_create_slender_table
+
+    [-] Publishing Slender assets
+
+    Assets published for bundle [docs].
+    Assets published for bundle [slender].
+
+    [-] Installation Complete!
+
 You're now ready to start using Slender!
 
 ### Managing Slender Users

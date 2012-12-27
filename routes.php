@@ -1,9 +1,5 @@
 <?php
 
-// --------------------------------------------------------------------------
-// Slender CMS Routes
-// --------------------------------------------------------------------------
-
 Route::get('slender', function(){
     return View::make('slender::home')->with('failed', '0');
 });
@@ -25,7 +21,6 @@ Route::get('slender/dash', array('before' => 'slender_auth', function(){
     return View::make('slender::dash');
 }));
 
-// Restful 'tag' named routes.
 Route::get('slender/tags', array('before' => 'slender_auth', 'as' => 'slender_tags', 'uses' => 'slender::tags@index'));
 Route::post('slender/tags', array('before' => 'slender_auth', 'as' => 'slender_create_tag', 'uses' => 'slender::tags@index'));
 Route::get('slender/tags/(:num)', array('before' => 'slender_auth', 'as' => 'slender_show_tag', 'uses' => 'slender::tags@show'));
@@ -33,10 +28,6 @@ Route::get('slender/tags/(:num)/edit', array('before' => 'slender_auth', 'as' =>
 Route::get('slender/tags/new', array('before' => 'slender_auth', 'as' => 'slender_new_tag', 'uses' => 'slender::tags@new'));
 Route::put('slender/tags/(:num)', array('before' => 'slender_auth', 'as' => 'slender_update_tag', 'uses' => 'slender::tags@update'));
 Route::delete('slender/tags/(:num)', array('before' => 'slender_auth', 'as' => 'slender_delete_tag', 'uses' => 'slender::tags@destroy'));
-
-// --------------------------------------------------------------------------
-// Slender CMS Filters
-// --------------------------------------------------------------------------
 
 Route::filter('slender_auth', function()
 {
