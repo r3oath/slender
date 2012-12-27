@@ -6,6 +6,8 @@ For licensing, please see the included "LICENSE".
 
 ***
 
+![Slender](http://r3oath.com/slender2.jpg)
+
 ## Getting Started
 
 ### Installing Slender
@@ -18,11 +20,13 @@ Clone the Slender Repo into your Laravel Bundles folder
 
 Let Laravel know about Slender by adding one line in the *bundles.php* file in the *application/* directory.
 
-    return array(
-        'docs' => array('handles' => 'docs'),
-        // Add this line below.
-        'slender' => array('handles' => 'slender', 'auto' => true),
-    );
+```php
+return array(
+    'docs' => array('handles' => 'docs'),
+    // Add this line below.
+    'slender' => array('handles' => 'slender', 'auto' => true),
+);
+```
 
 Open up a console window and run
 
@@ -48,11 +52,13 @@ You're now ready to start using Slender!
 
 To login and manage Slender tags, you'll need an existing user system. Your users table will require one additional field, this being
 
-    $table->boolean('slender_admin')->default(0);
+```php
+$table->boolean('slender_admin')->default(0);
+```
 
 Any user who has *slender_admin* equal to 1 (true) will be able to access the Slender dashboard.
 
-***
+![Slender](http://r3oath.com/slender1.jpg)
 
 ### Placing Slender Tags
 
@@ -60,39 +66,55 @@ Slender has various different content tag types. These include HTML, Text, JS (J
     
 #### HTML Tags
 
-    {{ Slender::html('Home: Main Content', 'Some Description') }}
+```php
+{{ Slender::html('Home: Main Content', 'Some Description') }}
+```
 
 #### TEXT Tags
 
-    {{ Slender::text('Home: Sidebar Content', 'Some Description') }}
+```php
+{{ Slender::text('Home: Sidebar Content', 'Some Description') }}
+```
 
 #### JS Tags
 
-    {{ Slender::js('Home: Menu Actions', 'Some Description') }}
+```php
+{{ Slender::js('Home: Menu Actions', 'Some Description') }}
+```
 
 #### CSS Tags
 
-    {{ Slender::css('Home: Menu Styling', 'Some Description') }}
+```php
+{{ Slender::css('Home: Menu Styling', 'Some Description') }}
+```
 
 #### IMAGE Tags
 
-    {{ Slender::image('Home: Product Image', 'Some Description') }}
+```php
+{{ Slender::image('Home: Product Image', 'Some Description') }}
+```
 
 Note that *descriptions are optional*, this is acceptable
 
-    {{ Slender::html('Home: Main Content') }}
+```php
+{{ Slender::html('Home: Main Content') }}
+```
 
 ##### Global Tags
 
 If you'd like a tag to appear on multiple pages and not just the page it was created on, simply set the 3rd tag argument as 'true'. This sets the tag as global.
 
-    {{ Slender::html('Global: Footer', 'Some Description', true) }}
+```php
+{{ Slender::html('Global: Footer', 'Some Description', true) }}
+```
 
 Once tags have been placed on a page, load the page in the browser to initialize them, no content will be displayed, this is normal.
 
 ***
 
 ### Managing Tags
+
+![Slender](http://r3oath.com/slender3.jpg)
 
 Login to the Slender Admin area by adding /slender to the end of your domain.
     
