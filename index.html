@@ -45,16 +45,31 @@
 
 <p>Let Laravel know about Slender by adding one line in the <em>bundles.php</em> file in the <em>application/</em> directory.</p>
 
-<pre><code>return array(
-    'docs' =&gt; array('handles' =&gt; 'docs'),
-    // Add this line below.
-    'slender' =&gt; array('handles' =&gt; 'slender', 'auto' =&gt; true),
-);
-</code></pre>
+<div class="highlight"><pre><span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'docs'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'handles'</span> <span class="o">=&gt;</span> <span class="s1">'docs'</span><span class="p">),</span>
+    <span class="c1">// Add this line below.</span>
+    <span class="s1">'slender'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'handles'</span> <span class="o">=&gt;</span> <span class="s1">'slender'</span><span class="p">,</span> <span class="s1">'auto'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
 
 <p>Open up a console window and run</p>
 
 <pre><code>php artisan slender::setup:install
+</code></pre>
+
+<p>The console should output something similar too...</p>
+
+<pre><code>[*] Beginning Installation...
+[-] Creating the DB migration.
+
+    Migrated: application/2012_12_27_124224_create_slender_table
+
+[-] Publishing Slender assets
+
+Assets published for bundle [docs].
+Assets published for bundle [slender].
+
+[-] Installation Complete!
 </code></pre>
 
 <p>You're now ready to start using Slender!</p>
@@ -63,64 +78,64 @@
 
 <p>To login and manage Slender tags, you'll need an existing user system. Your users table will require one additional field, this being</p>
 
-<pre><code>$table-&gt;boolean('slender_admin')-&gt;default(0);
-</code></pre>
+<div class="highlight"><pre><span class="nv">$table</span><span class="o">-&gt;</span><span class="na">boolean</span><span class="p">(</span><span class="s1">'slender_admin'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">default</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
 
 <p>Any user who has <em>slender_admin</em> equal to 1 (true) will be able to access the Slender dashboard.</p>
 
-<hr><h3>Placing Slender Tags</h3>
+<p><img src="http://r3oath.com/slender1.jpg" alt="Slender"></p>
+
+<h3>Placing Slender Tags</h3>
 
 <p>Slender has various different content tag types. These include HTML, Text, JS (JavaScript/jQuery etc), CSS and Image. Place these tags in any spot you wish to pull in dynamic content.</p>
 
 <h4>HTML Tags</h4>
 
-<pre><code>{{ Slender::html('Home: Main Content', 'Some Description') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">html</span><span class="p">(</span><span class="s1">'Home: Main Content'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <h4>TEXT Tags</h4>
 
-<pre><code>{{ Slender::text('Home: Sidebar Content', 'Some Description') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">text</span><span class="p">(</span><span class="s1">'Home: Sidebar Content'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <h4>JS Tags</h4>
 
-<pre><code>{{ Slender::js('Home: Menu Actions', 'Some Description') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">js</span><span class="p">(</span><span class="s1">'Home: Menu Actions'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <h4>CSS Tags</h4>
 
-<pre><code>{{ Slender::css('Home: Menu Styling', 'Some Description') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">css</span><span class="p">(</span><span class="s1">'Home: Menu Styling'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <h4>IMAGE Tags</h4>
 
-<pre><code>{{ Slender::image('Home: Product Image', 'Some Description') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">image</span><span class="p">(</span><span class="s1">'Home: Product Image'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <p>Note that <em>descriptions are optional</em>, this is acceptable</p>
 
-<pre><code>{{ Slender::html('Home: Main Content') }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">html</span><span class="p">(</span><span class="s1">'Home: Main Content'</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <h5>Global Tags</h5>
 
 <p>If you'd like a tag to appear on multiple pages and not just the page it was created on, simply set the 3rd tag argument as 'true'. This sets the tag as global.</p>
 
-<pre><code>{{ Slender::html('Global: Footer', 'Some Description', true) }}
-</code></pre>
+<div class="highlight"><pre><span class="p">{{</span> <span class="nx">Slender</span><span class="o">::</span><span class="na">html</span><span class="p">(</span><span class="s1">'Global: Footer'</span><span class="p">,</span> <span class="s1">'Some Description'</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="p">}}</span>
+</pre></div>
 
 <p>Once tags have been placed on a page, load the page in the browser to initialize them, no content will be displayed, this is normal.</p>
 
 <hr><h3>Managing Tags</h3>
 
-<p><img src="http://r3oath.com/slender1.jpg" alt="Slender"></p>
+<p><img src="http://r3oath.com/slender3.jpg" alt="Slender"></p>
 
 <p>Login to the Slender Admin area by adding /slender to the end of your domain.</p>
 
 <pre><code>http://&lt;your-website&gt;/slender
 </code></pre>
-
-<p><img src="http://r3oath.com/slender3.jpg" alt="Slender"></p>
 
 <p>All initialized tags will be displayed on the dashboard. Click on a tag to begin editing the associated content. Click save to activate the tag. Saved tags will immediately start displaying their associated content.</p>
       </section>
