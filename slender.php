@@ -29,7 +29,7 @@ class Slender {
      * @access public
      * @static
      */
-    public static $REPO = 'https://github.com/r3oath/slender';
+    public static $REPO = 'http://r3oath.github.com/slender/';
 
     /**
      * Create or return a html tag.
